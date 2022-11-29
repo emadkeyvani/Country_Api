@@ -10,7 +10,7 @@ import com.keyvani.countryapi.databinding.ItemHomeCountryListBinding
 import com.keyvani.countryapi.response.ResponseCountries.ResponseCountriesItem
 import javax.inject.Inject
 
-class CountriesAdapter @Inject constructor() : RecyclerView.Adapter<CountriesAdapter.ViewHolder>() {
+class HomeAdapter @Inject constructor() : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
     //Binding
     private lateinit var binding: ItemHomeCountryListBinding
 

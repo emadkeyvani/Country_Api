@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.keyvani.countryapi.databinding.FragmentHomeBinding
-import com.keyvani.countryapi.response.ResponseCountries
-import com.keyvani.countryapi.viewmodel.HomeViewModel
+import com.keyvani.countryapi.viewmodel.ViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -19,10 +18,10 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
 
     @Inject
-    lateinit var countriesAdapter: CountriesAdapter
+    lateinit var homeAdapter: HomeAdapter
 
     //Others
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: ViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,11 +43,11 @@ class HomeFragment : Fragment() {
         binding.apply {
             //Get Countries
             viewModel.countriesList.observe(viewLifecycleOwner) {
-                countriesAdapter.differ.submitList(it)
+                homeAdapter.differ.submitList(it)
                 //Recycler
                 rvCountriesList.apply {
                     layoutManager = LinearLayoutManager(context)
-                    adapter = countriesAdapter
+                    adapter = homeAdapter
                 }
             }
             viewModel.loading.observe(viewLifecycleOwner){
