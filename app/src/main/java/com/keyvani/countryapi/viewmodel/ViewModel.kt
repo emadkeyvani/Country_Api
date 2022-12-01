@@ -3,15 +3,17 @@ package com.keyvani.countryapi.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.keyvani.countryapi.repository.HomeRepository
+import com.keyvani.countryapi.repository.Repository
 import com.keyvani.countryapi.response.ResponseCountries
+import com.keyvani.countryapi.response.ResponseDetail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ViewModel @Inject constructor(private val repository: HomeRepository) : ViewModel() {
+class ViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
     val countriesList = MutableLiveData<ResponseCountries>()
+    val countryDetail = MutableLiveData<List<ResponseDetail>>()
     val searchCountry = MutableLiveData<ResponseCountries>()
     val loading = MutableLiveData<Boolean>()
     val empty = MutableLiveData<Boolean>()
@@ -34,6 +36,15 @@ class ViewModel @Inject constructor(private val repository: HomeRepository) : Vi
             empty.postValue(false)
         } else {
             empty.postValue(true)
+        }
+        loading.postValue(false)
+    }
+
+    fun loadCountryDetail(ccn3:String) = viewModelScope.launch {
+        loading.postValue(true)
+        val response = repository.countryDetail(ccn3)
+        if (response.isSuccessful) {
+            countryDetail.postValue(response.body())
         }
         loading.postValue(false)
     }

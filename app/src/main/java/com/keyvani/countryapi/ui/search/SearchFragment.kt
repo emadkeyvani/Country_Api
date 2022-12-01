@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.keyvani.countryapi.databinding.FragmentSearchBinding
 import com.keyvani.countryapi.ui.home.HomeAdapter
+import com.keyvani.countryapi.ui.home.HomeFragmentDirections
 import com.keyvani.countryapi.viewmodel.ViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -53,6 +55,12 @@ class SearchFragment : Fragment() {
                     adapter = searchAdapter
                 }
             }
+            //Click
+            searchAdapter.setonItemClickListener {
+                val direction = SearchFragmentDirections.actionToDetail(it.ccn3.toString())
+                findNavController().navigate(direction)
+            }
+
             //Loading
             viewModel.loading.observe(viewLifecycleOwner) {
                 if (it) {

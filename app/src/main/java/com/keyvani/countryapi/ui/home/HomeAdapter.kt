@@ -22,6 +22,7 @@ class HomeAdapter @Inject constructor() : RecyclerView.Adapter<HomeAdapter.ViewH
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItems(differ.currentList[position])
+        holder.setIsRecyclable(false)
     }
 
     override fun getItemCount(): Int {
@@ -31,12 +32,24 @@ class HomeAdapter @Inject constructor() : RecyclerView.Adapter<HomeAdapter.ViewH
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
         fun bindItems(item: ResponseCountriesItem) {
             binding.apply {
+                //var nameCity : String
                 tvCountryName.text = item.name?.common
+
+//                for(i in item.capital!!){
+//                    tvCapital.append("$i ")
+//                }
+
                 tvCapital.text = item.capital.toString()
                 tvCountryLanguage.text = item.languages.toString()
                 ivFlag.load(item.flags?.png.toString()) {
                     crossfade(true)
                     crossfade(800)
+                }
+                //Click
+                root.setOnClickListener {
+                    onItemClickListener?.let {
+                        it(item)
+                    }
                 }
             }
         }
@@ -55,5 +68,11 @@ class HomeAdapter @Inject constructor() : RecyclerView.Adapter<HomeAdapter.ViewH
     }
     val differ = AsyncListDiffer(this, differCallback)
 
+
+    private var onItemClickListener: ((ResponseCountriesItem) -> Unit)? = null
+
+    fun setonItemClickListener(listener: (ResponseCountriesItem) -> Unit) {
+        onItemClickListener = listener
+    }
 
 }

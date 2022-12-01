@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.keyvani.countryapi.databinding.FragmentHomeBinding
 import com.keyvani.countryapi.viewmodel.ViewModel
@@ -50,18 +51,24 @@ class HomeFragment : Fragment() {
                     adapter = homeAdapter
                 }
             }
-            viewModel.loading.observe(viewLifecycleOwner){
-                if(it){
-                    pbCountries.visibility=View.VISIBLE
-                    rvCountriesList.visibility=View.GONE
-                }else{
-                    pbCountries.visibility=View.GONE
-                    rvCountriesList.visibility=View.VISIBLE
+            viewModel.loading.observe(viewLifecycleOwner) {
+                if (it) {
+                    pbCountries.visibility = View.VISIBLE
+                    rvCountriesList.visibility = View.GONE
+                } else {
+                    pbCountries.visibility = View.GONE
+                    rvCountriesList.visibility = View.VISIBLE
 
                 }
             }
+
+            //Click
+            homeAdapter.setonItemClickListener {
+                val direction = HomeFragmentDirections.actionToDetail(it.ccn3.toString())
+                findNavController().navigate(direction)
+            }
+
+
         }
-
-
     }
 }

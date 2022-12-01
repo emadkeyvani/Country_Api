@@ -9,7 +9,11 @@
         android:id="@+id/detailFragment"
         android:name="com.keyvani.countryapi.ui.detail.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="ccn3"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.keyvani.countryapi.ui.favorite.FavoriteFragment"
@@ -29,9 +33,12 @@
         android:id="@+id/splashFragment"
         android:name="com.keyvani.countryapi.ui.splash.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/actionSplashToHome"
             app:destination="@id/homeFragment" />
     </fragment>
+    <action
+        android:id="@+id/actionToDetail"
+        app:destination="@id/detailFragment" />
 </navigation>
