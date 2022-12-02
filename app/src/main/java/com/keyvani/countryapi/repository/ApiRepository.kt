@@ -3,7 +3,7 @@ package com.keyvani.countryapi.repository
 import com.keyvani.countryapi.api.ApiServices
 import javax.inject.Inject
 
-class Repository @Inject constructor(private val api: ApiServices) {
+class ApiRepository @Inject constructor(private val api: ApiServices) {
 
     suspend fun countryList() = api.countriesList()
 
