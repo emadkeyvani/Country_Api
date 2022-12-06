@@ -38,23 +38,12 @@
             android:id="@+id/backImg"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:background="@drawable/bg_circle_dark"
             android:padding="8dp"
             android:src="@drawable/ic_round_arrow_back_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/philippineSilver" />
+            app:tint="@color/chinesBlack" />
 
-        <ImageView
-            android:id="@+id/favImg"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:background="@drawable/bg_circle_dark"
-            android:padding="8dp"
-            android:src="@drawable/ic_round_favorite_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/philippineSilver" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!--Info lay-->
@@ -62,8 +51,8 @@
         android:id="@+id/infoLay"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgFlagLayout">
 
         <!--Title-->
@@ -88,23 +77,24 @@
             android:layout_height="wrap_content"
             android:drawablePadding="5dp"
             android:fontFamily="sans-serif-light"
-            android:textColor="@color/philippineSilver"
+            android:textColor="@color/chinesBlack"
             android:textSize="17sp"
             app:drawableStartCompat="@drawable/ic_round_location_city_24"
-            app:drawableTint="@color/philippineSilver"
+            app:drawableTint="@color/chinesBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCountryName" />
+
         <TextView
             android:id="@+id/tvPopulation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="5dp"
             android:layout_marginTop="7dp"
+            android:drawablePadding="5dp"
             android:fontFamily="sans-serif-light"
-            android:textColor="@color/philippineSilver"
+            android:textColor="@color/chinesBlack"
             android:textSize="17sp"
             app:drawableStartCompat="@drawable/ic_round_person_24"
-            app:drawableTint="@color/philippineSilver"
+            app:drawableTint="@color/chinesBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCapital" />
 

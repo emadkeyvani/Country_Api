@@ -10,8 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.keyvani.countryapi.databinding.FragmentSearchBinding
-import com.keyvani.countryapi.ui.home.HomeAdapter
-import com.keyvani.countryapi.ui.home.HomeFragmentDirections
+import com.keyvani.countryapi.adapter.HomeAdapter
 import com.keyvani.countryapi.viewmodel.ViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="@string/countries"
-            android:textColor="@color/crayola"
+            android:textColor="@color/raisinBlack"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

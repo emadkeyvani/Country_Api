@@ -19,7 +19,9 @@
     <color name="gunmetal">#2c2e43</color>
 
 
-    <color name="persianGreen">#02d3d3</color>
+    <color name="persianGreen">#CFFDE1</color>
+    <color name="backGround">#FEFCFc</color>
+    <color name="item">#55a18d</color>
 
 
 </resources>

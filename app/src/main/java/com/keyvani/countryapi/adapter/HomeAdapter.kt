@@ -1,4 +1,4 @@
-package com.keyvani.countryapi.ui.home
+package com.keyvani.countryapi.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -40,7 +40,7 @@ class HomeAdapter @Inject constructor() : RecyclerView.Adapter<HomeAdapter.ViewH
 //                }
 
                 tvCapital.text = item.capital.toString()
-                tvCountryLanguage.text = item.languages.toString()
+               // tvCountryLanguage.text = item.languages.toString()
                 ivFlag.load(item.flags?.png.toString()) {
                     crossfade(true)
                     crossfade(800)
