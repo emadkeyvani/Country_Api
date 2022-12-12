@@ -32,15 +32,8 @@ class HomeAdapter @Inject constructor() : RecyclerView.Adapter<HomeAdapter.ViewH
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
         fun bindItems(item: ResponseCountriesItem) {
             binding.apply {
-                //var nameCity : String
                 tvCountryName.text = item.name?.common
-
-//                for(i in item.capital!!){
-//                    tvCapital.append("$i ")
-//                }
-
                 tvCapital.text = item.capital.toString()
-               // tvCountryLanguage.text = item.languages.toString()
                 ivFlag.load(item.flags?.png.toString()) {
                     crossfade(true)
                     crossfade(800)
